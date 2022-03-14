@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>সম্পদ | সম্পদ তালিকা </title>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons-bs4/2.2.2/buttons.bootstrap4.min.css" />
+    <!-- <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css"> -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'SolaimanLipi', Arial, sans-serif !important;
+        background-color: #eee;}
+      .brand-link .brand-image{ width: 33px;} </style>
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+              <i class="fas fa-bars"></i>
+            </a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="../index.html" class="nav-link">হোম </a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="../index.html" class="nav-link"> একনজরে </a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="../pages/assetlist.html" class="nav-link"> সম্পদ তালিকা </a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="../pages/assetloss.html" class="nav-link"> ঘাটতি তালিকা</a>
+          </li>
+        </ul>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+              <i class="fas fa-search"></i>
+            </a>
+            <div class="navbar-search-block">
+              <form class="form-inline">
+                <div class="input-group input-group-sm">
+                  <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
+              <i class="fas fa-th-large"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+      <!-- Main Sidebar Container -->
+     
+    
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../index.html" class="brand-link">
+      <img src="../dist/img/logo-a.jpg" alt="Assets Logo" class="brand-image img-circle elevation-3" style="opacity: .8;widows: 60px;height: 60px;">
+      <span class="brand-text font-weight-light">Assets</span>
+    </a>
+
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard                
+              </p>
+            </a>
+        
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                যোগ করুন 
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/addcategory.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ক্যাটাগরি </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/adduser.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ব্যবহারকারী </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        
+<!-- 
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Forms
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/advanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Advanced Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/editors.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editors</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/validation.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Validation</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Tables
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/tables/simple.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Simple Tables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/data.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>DataTables</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/tables/jsgrid.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>jsGrid</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1> সম্পদ তালিকা </h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title"> সম্পদ তালিকা </h3>
+                    <button type="button" class="btn btn-primary float-right mx-1 btn-sm" data-toggle="modal" data-target="#modal-one">
+                      <i class="fas fa-plus"></i> Add Asset </button>
+                    <button type="button" class="btn btn-primary float-right mx-1 btn-sm" data-toggle="modal" data-target="#modal-two">
+                      <i class="fas fa-plus"></i> Add User </button>
+                    <button type="button" class="btn btn-primary float-right mx-1 btn-sm" data-toggle="modal" data-target="#modal-three">
+                      <i class="fas fa-plus"></i> Add Category </button>
+                    <!--  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
+                  Launch Success Modal
+                </button> -->
+                    <!-- modal  -->
+                    <div class="modal fade" id="modal-one">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-success">
+                          <div class="modal-header">
+                            <h4 class="modal-title">সম্পদ </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>One fine body&hellip;</p> -->
+                            <div class="form-group">
+                              <label for="assid">আইডি *</label>
+                              <input type="text" id="assid" name="assid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="asspic">সম্পদ ছবি *</label>
+                              <input type="file" id="asspic" name="asspic" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="category">Category *</label>
+                              <select class="form-control select2" title="user" name="category" style="width: 100%;">
+                                <option selected="selected">সূচনা</option>
+                                <option>প্রবর্তন</option>
+                                <option>ভূমিকা</option>
+                                <option>পরিচয়</option>
+                                <option>মুখবন্ধ,</option>
+                                <option>সূত্রপাত</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="rosid"> রশিদ *</label>
+                              <input type="file" id="rosid" name="rosid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="buydate">ক্রয়ের তারিখ *</label>
+                              <input type="date" id="buydate" name="buydate" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="buyamount">ক্রয় মূল্য *</label>
+                              <input type="number" id="buyamount" name="buyamount" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="saleprice">সম্ভাব্য বিক্রয় মূল্য *</label>
+                              <input type="number" id="saleprice" name="saleprice" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label>ব্যবহারকারী</label>
+                              <select class="form-control select2" name="user" style="width: 100%;">
+                                <option selected="selected">সূচনা</option>
+                                <option>প্রবর্তন</option>
+                                <option>ভূমিকা</option>
+                                <option>পরিচয়</option>
+                                <option>মুখবন্ধ,</option>
+                                <option>সূত্রপাত</option>
+                              </select>
+                            </div>
+                            <!-- /.form-group -->
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-light">Save changes</button>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                   
+                    <!-- modal  -->
+                    <div class="modal fade" id="modal-two">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-success">
+                          <div class="modal-header">
+                            <h4 class="modal-title">ব্যবহারকারী</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>One fine body&hellip;</p> -->
+                            <div class="form-group">
+                              <label for="assid">নাম *</label>
+                              <input type="text" id="assid" name="assid" class="form-control">
+                            </div>
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-light">Save changes</button>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                    <!-- modal  -->
+                    <form action="" method="post">
+                    <div class="modal fade" id="modal-three">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-success">
+                          <div class="modal-header">
+                            <h4 class="modal-title">ক্যাটাগরি</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>One fine body&hellip;</p> -->
+                            <div class="form-group">
+                              <label for="assid">নাম *</label>
+                              <input type="text" id="assid" name="assid" class="form-control">
+                            </div>
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-light">Save changes</button>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
+                  </form>
+                    <!-- /.modal -->
+
+
+                            <!-- modal edit -->
+                 <!-- modal  -->
+                 <form action="" method="post">
+                    <div class="modal fade" id="modal-edit">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-success">
+                          <div class="modal-header">
+                            <h4 class="modal-title">সম্পদ </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>One fine body&hellip;</p> -->
+                            <div class="form-group">
+                              <label for="assid">আইডি *</label>
+                              <input type="text" id="assid" value="221" name="assid"  class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="asspic">সম্পদ ছবি *</label>
+                              <input type="file" id="asspic" name="asspic" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="category">Category *</label>
+                              <select class="form-control select2" title="user" name="category" style="width: 100%;">
+                                <option>প্রবর্তন</option>
+                                <option selected="selected">সূচনা</option>
+                                <option>ভূমিকা</option>
+                                <option>পরিচয়</option>
+                                <option>মুখবন্ধ,</option>
+                                <option>সূত্রপাত</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="rosid"> রশিদ *</label>
+                              <input type="file" id="rosid"  name="rosid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="buydate">ক্রয়ের তারিখ *</label>
+                              <input type="date" id="buydate" value="3/4/22" name="buydate" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="buyamount">ক্রয় মূল্য *</label>
+                              <input type="number" id="buyamount" value="20222" name="buyamount" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="saleprice">সম্ভাব্য বিক্রয় মূল্য *</label>
+                              <input type="number" id="saleprice" value="17703" name="saleprice" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label>ব্যবহারকারী</label>
+                              <select class="form-control select2" name="user" style="width: 100%;">
+                                <option>প্রবর্তন</option>
+                                <option selected="selected">সূচনা</option>
+                                <option>ভূমিকা</option>
+                                <option>পরিচয়</option>
+                                <option>মুখবন্ধ,</option>
+                                <option>সূত্রপাত</option>
+                              </select>
+                            </div>
+                            <!-- /.form-group -->
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-light">Save Update</button>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                    </form>
+                <!-- modal edit -->
+
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example1" class="table table-bordered  table-hover" data-page-length='25'>
+                      <thead>
+                        <tr>
+                          <th>ক্রমঃ</th> 
+                          <th> আইডি </th>
+                          <th>সম্পদ ছবি</th>
+                          <th> রশিদ </th>
+                          <th> বিভাগ </th>
+                          <th> ব্যবহারকারী</th>
+                          <th>ক্রয়ের তারিখ</th>
+                          <th> ক্রয় মূল্য </th>
+                          <th> সম্ভাব্য বিক্রয় মূল্য </th>
+                          <th> Action </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>101 </td>
+                          <td><img src="../dist/img/phone.jpg" width="50" height="50" alt=""></td>
+                          <td><img src="../dist/img/voucher.png" width="50" height="50" alt=""></td>
+                          <td> ছাত্রকল্যান </td>
+                          <td> আলম </td>
+                          <td> ২৪-২-২২</td>
+                          <td> ৮৯৯৯/-</td>
+                          <td> ৮০০০/-</td>
+                          <td>
+                            <button type="button" data-toggle="modal" data-target="#modal-edit" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <a href="assethistory.html"><button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-history"></i>
+                            </button></a>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-exchange-alt"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>101 </td>
+                          <td><img src="../dist/img/phone.jpg" width="50" height="50" alt=""></td>
+                          <td><img src="../dist/img/voucher.png" width="50" height="50" alt=""></td>
+                          <td> ছাত্রকল্যান </td>
+                          <td> আলম </td>
+                          <td> ২৪-২-২২</td>
+                          <td> ৮৯৯৯/-</td>
+                          <td> ৮০০০/-</td>
+                          <td>
+                              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <button type="button" class="btn btn-primary rounded dropdown-toggle" data-toggle="dropdown">
+                      Action
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" data-toggle="modal" data-target="#modal-edit" href="#">এডিট</a>
+
+                      <a class="dropdown-item" href="#">ঘাটতি</a>
+                      <a class="dropdown-item" href="#">ডিলিট</a>
+                      <a class="dropdown-item" href="#">ইস্থানন্তর</a>
+                      <a class="dropdown-item" href="#">হিস্টোরি</a>
+                    </div>
+                  </div> 
+ 
+ 
+
+
+                  <!-- /btn-group -->
+                  <!-- <input type="text" class="form-control"> -->
+                </div>
+                           <!--  <button type="button" data-toggle="modal" data-target="#modal-edit" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <a href="assethistory.html"><button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-history"></i>
+                            </button></a>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-exchange-alt"></i>
+                            </button> -->
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>101 </td>
+                          <td><img src="../dist/img/phone.jpg" width="50" height="50" alt=""></td>
+                          <td><img src="../dist/img/voucher.png" width="50" height="50" alt=""></td>
+                          <td> ছাত্রকল্যান </td>
+                          <td> আলম </td>
+                          <td> ২৪-২-২২</td>
+                          <td> ৮৯৯৯/-</td>
+                          <td> ৮০০০/-</td>
+                          <td>
+                            <button type="button" data-toggle="modal" data-target="#modal-edit" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <a href="assethistory.html"><button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-history"></i>
+                            </button></a>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-exchange-alt"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>101 </td>
+                          <td><img src="../dist/img/phone.jpg" width="50" height="50" alt=""></td>
+                          <td><img src="../dist/img/voucher.png" width="50" height="50" alt=""></td>
+                          <td> ছাত্রকল্যান </td>
+                          <td> আলম </td>
+                          <td> ২৪-২-২২</td>
+                          <td> ৮৯৯৯/-</td>
+                          <td> ৮০০০/-</td>
+                          <td>
+                            <button type="button" data-toggle="modal" data-target="#modal-edit" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <a href="assethistory.html"><button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-history"></i>
+                            </button></a>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-exchange-alt"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>101 </td>
+                          <td><img src="../dist/img/phone.jpg" width="50" height="50" alt=""></td>
+                          <td><img src="../dist/img/voucher.png" width="50" height="50" alt=""></td>
+                          <td> ছাত্রকল্যান </td>
+                          <td> আলম </td>
+                          <td> ২৪-২-২২</td>
+                          <td> ৮৯৯৯/-</td>
+                          <td> ৮০০০/-</td>
+                          <td>
+                            <button type="button" data-toggle="modal" data-target="#modal-edit" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <a href="assethistory.html"><button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-history"></i>
+                            </button></a>
+                            <button type="button" class="mx-1 mb-1 btn btn-primary btn-xs">
+                              <i class="fas fa-exchange-alt"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>ক্রমঃ</th>
+                          <th> আইডি </th>
+                          <th>সম্পদ ছবি</th>
+                          <th> রশিদ </th>
+                          <th> বিভাগ </th>
+                          <th> ব্যবহারকারী</th>
+                          <th>ক্রয়ের তারিখ</th>
+                          <th> ক্রয় মূল্য </th>
+                          <th> সম্ভাব্য বিক্রয় মূল্য </th>
+                          <th> অ্যাকশন </th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+
+
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+          <b>Version</b> 3.2.0
+        </div>
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>. </strong> All rights reserved.
+      </footer>
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="../plugins/datatables/jquery.dataTables.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.2.9/dataTables.responsive.min.js"></script>
+    <!-- <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
+    <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons-bs4/2.2.2/buttons.bootstrap4.min.js"></script>
+    <!-- <script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script> -->
+    <script src="../plugins/jszip/jszip.min.js"></script>
+    <script src="../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+      $(function() {
+        $("#example1").DataTable({
+          "responsive": true,
+          "lengthChange": true,
+          "autoWidth": false,
+          "responsive": true,
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+        });
+      });
+    </script>
+  </body>
+</html>
